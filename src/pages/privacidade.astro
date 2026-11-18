@@ -49,23 +49,23 @@ import Legal from '@/layouts/Legal.astro';
     A extensão não tem telemetria. Ela não envia nada à PHMR Tech Solutions nem a terceiros por conta própria. Não existe servidor da PHMR, conta de usuário, rastreamento, anúncio, venda de dados nem código remoto.
   </p>
   <p>
-    Os itens abaixo só acontecem quando você usa o recurso. Os marcados com asterisco (*) pedem a permissão do navegador na primeira vez.
+    Os itens abaixo só acontecem quando você aciona o recurso no painel da extensão.
   </p>
   <ul>
     <li>
       <strong>Planilha do plano de mensuração (Google Sheets).</strong> Se você informa o endereço da sua planilha, a extensão a lê (exportação .xlsx) usando a sua sessão do Google no navegador. Enquanto a sincronização estiver ligada, a leitura se repete sozinha a cada 30 minutos (padrão, e você pode ajustar). Nada é gravado na planilha.
     </li>
     <li>
-      <strong>DNS* (<code>dns.google</code>).</strong> Envia o domínio do site aberto, para ler os registros SPF e DMARC.
+      <strong>DNS (<code>dns.google</code>).</strong> Envia o domínio do site aberto, para ler os registros SPF e DMARC.
     </li>
     <li>
-      <strong>CNPJ* (<code>brasilapi.com.br</code>).</strong> Envia o CNPJ encontrado na página, para mostrar dados públicos da empresa.
+      <strong>CNPJ (<code>brasilapi.com.br</code>).</strong> Envia o CNPJ encontrado na página, para mostrar dados públicos da empresa.
     </li>
     <li>
-      <strong>CVM* (<code>dados.cvm.gov.br</code>).</strong> Baixa o arquivo público anual de companhias abertas e procura o CNPJ dentro do navegador. Nenhum CNPJ é enviado.
+      <strong>CVM (<code>dados.cvm.gov.br</code>).</strong> Baixa o arquivo público anual de companhias abertas e procura o CNPJ dentro do navegador. Nenhum CNPJ é enviado.
     </li>
     <li>
-      <strong>PageSpeed* (<code>www.googleapis.com</code>).</strong> Envia a URL da página, e a sua chave de API se você informar uma, para o Google medir o desempenho.
+      <strong>PageSpeed (<code>www.googleapis.com</code>).</strong> Envia a URL da página, e a sua chave de API se você informar uma, para o Google medir o desempenho.
     </li>
     <li>
       <strong>Certificado SSL.</strong> Com a permissão opcional “depurador”, concedida por um clique seu, a extensão liga o depurador do navegador só durante a leitura do certificado da aba.
@@ -96,6 +96,9 @@ import Legal from '@/layouts/Legal.astro';
   </p>
   <p>
     Quando você audita um site, você é responsável pelo uso que faz dos dados que vê nele. Se a captura incluir dados pessoais de visitantes desse site, a extensão mascara os que reconhece antes de guardar, mas a responsabilidade de tratar o que sobrar com cuidado é sua.
+  </p>
+  <p>
+    Os dados tratados pelo Validador GA4 seguem a Política de Dados do Usuário da Chrome Web Store, inclusive os requisitos de Uso Limitado: são usados só para conferir o tagueamento, ficam no seu navegador e não são vendidos nem usados para publicidade, análise de crédito ou empréstimos.
   </p>
 
   <h2>7. Este site</h2>

@@ -49,23 +49,23 @@ import Legal from '@/layouts/Legal.astro';
     The extension has no telemetry. On its own, it sends nothing to PHMR Tech Solutions or to any third party. There is no PHMR server, user account, tracking, advertising, sale of data or remote code.
   </p>
   <p>
-    The items below happen only when you use the feature. Those marked with an asterisk (*) ask for your browser's permission the first time.
+    The items below happen only when you trigger the feature in the extension panel.
   </p>
   <ul>
     <li>
       <strong>Measurement plan spreadsheet (Google Sheets).</strong> If you give the extension the address of your spreadsheet, it reads it (as an .xlsx export) using your own Google session in the browser. While syncing is on, the read repeats automatically every 30 minutes (the default, and you can change it). Nothing is written to the spreadsheet.
     </li>
     <li>
-      <strong>DNS* (<code>dns.google</code>).</strong> Sends the domain of the open site, to read its SPF and DMARC records.
+      <strong>DNS (<code>dns.google</code>).</strong> Sends the domain of the open site, to read its SPF and DMARC records.
     </li>
     <li>
-      <strong>CNPJ* (<code>brasilapi.com.br</code>).</strong> Sends the CNPJ (Brazilian company number) found on the page, to show public company data.
+      <strong>CNPJ (<code>brasilapi.com.br</code>).</strong> Sends the CNPJ (Brazilian company number) found on the page, to show public company data.
     </li>
     <li>
-      <strong>CVM* (<code>dados.cvm.gov.br</code>).</strong> Downloads the public annual file of listed companies and looks up the CNPJ inside your browser. No CNPJ is sent.
+      <strong>CVM (<code>dados.cvm.gov.br</code>).</strong> Downloads the public annual file of listed companies and looks up the CNPJ inside your browser. No CNPJ is sent.
     </li>
     <li>
-      <strong>PageSpeed* (<code>www.googleapis.com</code>).</strong> Sends the page URL, and your API key if you enter one, so Google can measure performance.
+      <strong>PageSpeed (<code>www.googleapis.com</code>).</strong> Sends the page URL, and your API key if you enter one, so Google can measure performance.
     </li>
     <li>
       <strong>SSL certificate.</strong> With the optional “debugger” permission, which you grant with a click, the extension turns on the browser's debugger only while it reads the tab's certificate.
@@ -96,6 +96,9 @@ import Legal from '@/layouts/Legal.astro';
   </p>
   <p>
     When you audit a site, you are responsible for how you use the data you see on it. If the capture includes personal data of that site's visitors, the extension masks what it recognizes before storing it, but handling whatever remains with care is up to you.
+  </p>
+  <p>
+    The use of user data handled by Validador GA4 adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements: data is used only to check the tagging, stays in your browser, and is never sold or used for advertising, creditworthiness or lending.
   </p>
 
   <h2>7. This website</h2>
