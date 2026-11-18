@@ -404,3 +404,24 @@ html:not(.js) [data-tema-botao], html:not(.js) [data-abrir] { display: none; }
   .btn:active, .tema-botao:active, .dlg-fechar:active, .menu-mobile > summary:active { transform: none; }
   .pergunta > summary svg { transition: none; }
 }
+
+/* ---------- Páginas legais (privacidade e termos) ---------- */
+.nav-legal { display: flex; align-items: center; gap: 0.1rem; margin-left: auto; flex-wrap: wrap; justify-content: flex-end; }
+.legal { max-width: 46rem; padding-block: 3rem 1rem; }
+@media (min-width: 1024px) { .legal { padding-block: 4.5rem 1.5rem; } }
+.legal h1 { font-size: clamp(2rem, 5vw, 2.9rem); }
+.legal-meta { color: var(--suave); margin-top: 0.75rem; font-size: 0.95rem; }
+.legal h2 { font-size: clamp(1.3rem, 3vw, 1.6rem); margin-top: 2.5rem; }
+.legal h3 { font-size: 1.1rem; margin-top: 1.5rem; letter-spacing: -0.015em; }
+.legal p, .legal ul { margin-top: 0.85rem; }
+.legal ul { padding-left: 1.25rem; list-style: disc; }
+.legal li { margin-top: 0.5rem; padding-left: 0.2rem; }
+.legal a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.legal a:hover { text-decoration-thickness: 2px; }
+.legal-resumo { margin-top: 1.5rem; padding: 1.25rem 1.25rem 1.35rem; background: var(--superficie); border: 1px solid var(--borda); border-radius: 0.75rem; }
+.legal-resumo h2 { margin-top: 0; font-size: 1.15rem; }
+.legal-resumo ul { margin-top: 0.5rem; }
+.legal code { background: var(--codigo); border: 1px solid var(--borda); border-radius: 0.3rem; padding: 0.05em 0.3em; overflow-wrap: anywhere; }
+.legal { overflow-wrap: break-word; }
+.rodape-legal { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.rodape-legal a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }

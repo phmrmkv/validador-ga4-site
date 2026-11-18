@@ -1,0 +1,117 @@
+---
+import Legal from '@/layouts/Legal.astro';
+---
+
+<Legal
+  idioma="pt"
+  title="Política de privacidade | Validador GA4"
+  description="Política de privacidade da extensão Validador GA4: o que ela lê, onde guarda, o que não faz e o que só sai do navegador quando você usa um recurso."
+  titulo="Política de privacidade do Validador GA4"
+  meta="Em vigor desde 18 de novembro de 2026 · Versão da extensão: 2.0.0"
+  alternates={{ pt: '/privacidade/', en: '/en/privacy/' }}
+>
+  <section class="legal-resumo" aria-labelledby="resumo">
+    <h2 id="resumo">Resumo</h2>
+    <ul>
+      <li>Tudo o que a extensão captura é processado e guardado no seu navegador.</li>
+      <li>Ela não envia nada à PHMR Tech Solutions nem a terceiros por conta própria.</li>
+      <li>Não há servidor da PHMR, conta, rastreamento, anúncios, venda de dados nem código remoto.</li>
+      <li>Alguma coisa só sai do navegador quando você usa um recurso específico. Eles estão listados na seção 4.</li>
+    </ul>
+  </section>
+
+  <h2>1. Quem é responsável e como falar com a gente</h2>
+  <p>
+    O Validador GA4 é uma extensão para Chrome e Edge da PHMR Tech Solutions. Dúvidas sobre esta política:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+
+  <h2>2. O que a extensão lê</h2>
+  <p>A extensão lê, na aba em que você a usa:</p>
+  <ul>
+    <li>o que o site coloca no <code>dataLayer</code> e no <code>gtag</code>;</li>
+    <li>as requisições que o navegador envia ao Google (GA4, Google Ads, GTM) e a ferramentas de mídia, como Meta, TikTok, LinkedIn, Pinterest, Snapchat, Microsoft/Bing, X e Reddit;</li>
+    <li>cliques e erros da página;</li>
+    <li>informações técnicas do site, como as tecnologias detectadas e os cabeçalhos técnicos permitidos.</li>
+  </ul>
+  <p>Ela lê isso para um único fim: conferir o tagueamento do site.</p>
+
+  <h2>3. Onde os dados ficam e como são tratados</h2>
+  <p>
+    Tudo é processado e guardado localmente no seu navegador, no <code>chrome.storage.local</code>. Antes de guardar, a extensão mascara os dados pessoais que reconhece: CPF, e-mail, telefone, tokens, identificadores e dados de usuário do Google.
+  </p>
+  <p>
+    Por padrão, ela guarda até 20 mil registros por sessão e até 300 sessões. Você pode apagar as sessões gravadas a qualquer momento. Desinstalar a extensão apaga tudo.
+  </p>
+
+  <h2>4. O que sai do navegador, e só quando você usa o recurso</h2>
+  <p>
+    A extensão não tem telemetria. Ela não envia nada à PHMR Tech Solutions nem a terceiros por conta própria. Não existe servidor da PHMR, conta de usuário, rastreamento, anúncio, venda de dados nem código remoto.
+  </p>
+  <p>
+    Os itens abaixo só acontecem quando você usa o recurso. Os marcados com asterisco (*) pedem a permissão do navegador na primeira vez.
+  </p>
+  <ul>
+    <li>
+      <strong>Planilha do plano de mensuração (Google Sheets).</strong> Se você informa o endereço da sua planilha, a extensão a lê (exportação .xlsx) usando a sua sessão do Google no navegador. Enquanto a sincronização estiver ligada, a leitura se repete sozinha a cada 30 minutos (padrão, e você pode ajustar). Nada é gravado na planilha.
+    </li>
+    <li>
+      <strong>DNS* (<code>dns.google</code>).</strong> Envia o domínio do site aberto, para ler os registros SPF e DMARC.
+    </li>
+    <li>
+      <strong>CNPJ* (<code>brasilapi.com.br</code>).</strong> Envia o CNPJ encontrado na página, para mostrar dados públicos da empresa.
+    </li>
+    <li>
+      <strong>CVM* (<code>dados.cvm.gov.br</code>).</strong> Baixa o arquivo público anual de companhias abertas e procura o CNPJ dentro do navegador. Nenhum CNPJ é enviado.
+    </li>
+    <li>
+      <strong>PageSpeed* (<code>www.googleapis.com</code>).</strong> Envia a URL da página, e a sua chave de API se você informar uma, para o Google medir o desempenho.
+    </li>
+    <li>
+      <strong>Certificado SSL.</strong> Com a permissão opcional “depurador”, concedida por um clique seu, a extensão liga o depurador do navegador só durante a leitura do certificado da aba.
+    </li>
+    <li>
+      <strong>Testes que você pede (“Testar instalação” e “Disparar na página”).</strong> Esses recursos inserem na página da aba, de forma temporária, um script do Google Tag Manager ou do gtag, ou comandos no <code>dataLayer</code>. Com isso, o próprio site envia dados ao Google como faria normalmente.
+    </li>
+  </ul>
+  <p>
+    Esses serviços têm políticas próprias. Consulte a política de privacidade do <a href="https://policies.google.com/privacy" rel="noopener">Google</a>, a da <a href="https://brasilapi.com.br/" rel="noopener">BrasilAPI</a> e a da <a href="https://www.gov.br/cvm/pt-br" rel="noopener">CVM</a>.
+  </p>
+
+  <h2>5. Permissões que a extensão pede e por quê</h2>
+  <ul>
+    <li><strong>Acesso a todos os sites:</strong> para gravar o <code>dataLayer</code> desde o início do carregamento em qualquer site que você audite. Nada é alterado na página por causa dessa permissão.</li>
+    <li><strong>Leitura das requisições de rede:</strong> só leitura, para ver o que o navegador envia ao Google e às ferramentas de mídia.</li>
+    <li><strong>Armazenamento local:</strong> para guardar as sessões e as opções no navegador.</li>
+    <li><strong>Painel lateral:</strong> para mostrar o painel ao lado da página.</li>
+    <li><strong>Abas:</strong> para saber em qual aba você está usando a extensão.</li>
+    <li><strong>Scripts:</strong> para rodar a captura na página.</li>
+    <li><strong>Alarmes:</strong> para repetir a leitura da planilha enquanto a sincronização estiver ligada.</li>
+    <li><strong>Depurador (opcional):</strong> só para ler o certificado SSL, como descrito na seção 4.</li>
+  </ul>
+
+  <h2>6. Seus dados, a LGPD e a sua responsabilidade</h2>
+  <p>
+    Pela extensão, a PHMR Tech Solutions não trata dados pessoais de quem a usa. Tudo fica no seu navegador e a PHMR não recebe nada.
+  </p>
+  <p>
+    Quando você audita um site, você é responsável pelo uso que faz dos dados que vê nele. Se a captura incluir dados pessoais de visitantes desse site, a extensão mascara os que reconhece antes de guardar, mas a responsabilidade de tratar o que sobrar com cuidado é sua.
+  </p>
+
+  <h2>7. Este site</h2>
+  <p>
+    Este site, <code>validador-ga4.phmr.com.br</code>, é a página de apresentação da extensão. Ele não usa cookies nem ferramentas de análise. A única informação que ele guarda no seu navegador é a escolha entre tema claro e escuro, no armazenamento local, e ela não sai do seu aparelho.
+  </p>
+
+  <h2>8. Mudanças nesta política</h2>
+  <p>
+    Se esta política mudar, a nova versão será publicada nesta página, com a data de vigência atualizada.
+  </p>
+
+  <h2>9. Contato</h2>
+  <p>
+    PHMR Tech Solutions:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+  <p>Veja também os <a href="/termos/">Termos de uso</a>.</p>
+</Legal>

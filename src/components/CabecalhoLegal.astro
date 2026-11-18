@@ -1,0 +1,24 @@
+---
+import Logo from './Logo.astro';
+import TemaAlternar from './TemaAlternar.astro';
+
+interface Props {
+  idioma: 'pt' | 'en';
+  /** Caminho da mesma página no outro idioma. */
+  outro: string;
+}
+const { idioma, outro } = Astro.props;
+const en = idioma === 'en';
+---
+
+<header class="cabecalho" data-cabecalho data-rolado="false">
+  <div class="miolo cabecalho-linha">
+    <Logo href="/" rotulo={en ? 'Validador GA4, home page (in Portuguese)' : 'Validador GA4, início'} />
+    <nav class="nav-legal" aria-label={en ? 'Page options' : 'Opções da página'}>
+      <a class="link-nav" href={outro} hreflang={en ? 'pt-BR' : 'en'} lang={en ? 'pt-BR' : 'en'}>
+        {en ? 'Português' : 'English'}
+      </a>
+      <TemaAlternar />
+    </nav>
+  </div>
+</header>

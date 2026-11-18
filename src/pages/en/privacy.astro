@@ -1,0 +1,117 @@
+---
+import Legal from '@/layouts/Legal.astro';
+---
+
+<Legal
+  idioma="en"
+  title="Privacy policy | Validador GA4"
+  description="Privacy policy for the Validador GA4 extension: what it reads, where it stores data, what it does not do, and what leaves the browser only when you use a feature."
+  titulo="Validador GA4 privacy policy"
+  meta="Effective November 18, 2026 · Extension version: 2.0.0"
+  alternates={{ pt: '/privacidade/', en: '/en/privacy/' }}
+>
+  <section class="legal-resumo" aria-labelledby="summary">
+    <h2 id="summary">Summary</h2>
+    <ul>
+      <li>Everything the extension captures is processed and stored in your browser.</li>
+      <li>On its own, it sends nothing to PHMR Tech Solutions or to any third party.</li>
+      <li>There is no PHMR server, no account, no tracking, no ads, no sale of data and no remote code.</li>
+      <li>Something leaves the browser only when you use a specific feature. They are listed in section 4.</li>
+    </ul>
+  </section>
+
+  <h2>1. Who is responsible and how to reach us</h2>
+  <p>
+    Validador GA4 is a Chrome and Edge extension by PHMR Tech Solutions. Questions about this policy:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+
+  <h2>2. What the extension reads</h2>
+  <p>In the tab where you use it, the extension reads:</p>
+  <ul>
+    <li>what the site puts in the <code>dataLayer</code> and in <code>gtag</code>;</li>
+    <li>the requests your browser sends to Google (GA4, Google Ads, GTM) and to advertising and conversion tools, such as Meta, TikTok, LinkedIn, Pinterest, Snapchat, Microsoft/Bing, X and Reddit;</li>
+    <li>clicks and errors on the page;</li>
+    <li>technical information about the site, such as detected technologies and the technical headers it is allowed to read.</li>
+  </ul>
+  <p>It reads this for one purpose only: to check the site's tagging.</p>
+
+  <h2>3. Where data is kept and how it is handled</h2>
+  <p>
+    Everything is processed and stored locally in your browser, in <code>chrome.storage.local</code>. Before storing anything, the extension masks the personal data it recognizes: CPF numbers, email addresses, phone numbers, tokens, identifiers and Google user data.
+  </p>
+  <p>
+    By default, it keeps up to 20,000 records per session and up to 300 sessions. You can delete the recorded sessions at any time. Uninstalling the extension deletes everything.
+  </p>
+
+  <h2>4. What leaves the browser, and only when you use the feature</h2>
+  <p>
+    The extension has no telemetry. On its own, it sends nothing to PHMR Tech Solutions or to any third party. There is no PHMR server, user account, tracking, advertising, sale of data or remote code.
+  </p>
+  <p>
+    The items below happen only when you use the feature. Those marked with an asterisk (*) ask for your browser's permission the first time.
+  </p>
+  <ul>
+    <li>
+      <strong>Measurement plan spreadsheet (Google Sheets).</strong> If you give the extension the address of your spreadsheet, it reads it (as an .xlsx export) using your own Google session in the browser. While syncing is on, the read repeats automatically every 30 minutes (the default, and you can change it). Nothing is written to the spreadsheet.
+    </li>
+    <li>
+      <strong>DNS* (<code>dns.google</code>).</strong> Sends the domain of the open site, to read its SPF and DMARC records.
+    </li>
+    <li>
+      <strong>CNPJ* (<code>brasilapi.com.br</code>).</strong> Sends the CNPJ (Brazilian company number) found on the page, to show public company data.
+    </li>
+    <li>
+      <strong>CVM* (<code>dados.cvm.gov.br</code>).</strong> Downloads the public annual file of listed companies and looks up the CNPJ inside your browser. No CNPJ is sent.
+    </li>
+    <li>
+      <strong>PageSpeed* (<code>www.googleapis.com</code>).</strong> Sends the page URL, and your API key if you enter one, so Google can measure performance.
+    </li>
+    <li>
+      <strong>SSL certificate.</strong> With the optional “debugger” permission, which you grant with a click, the extension turns on the browser's debugger only while it reads the tab's certificate.
+    </li>
+    <li>
+      <strong>Tests you request (“Test installation” and “Fire on page”).</strong> These features temporarily insert into the tab's page a Google Tag Manager or gtag script, or commands in the <code>dataLayer</code>. As a result, the site itself sends data to Google, as it normally would.
+    </li>
+  </ul>
+  <p>
+    These services have their own policies. See the privacy policy of <a href="https://policies.google.com/privacy" rel="noopener">Google</a>, the one from <a href="https://brasilapi.com.br/" rel="noopener">BrasilAPI</a> and the one from <a href="https://www.gov.br/cvm/pt-br" rel="noopener">CVM</a> (Brazil's securities regulator).
+  </p>
+
+  <h2>5. Permissions the extension asks for, and why</h2>
+  <ul>
+    <li><strong>Access to all sites:</strong> to record the <code>dataLayer</code> from the very start of loading on any site you audit. Nothing on the page is changed because of this permission.</li>
+    <li><strong>Reading network requests:</strong> read-only, to see what the browser sends to Google and to advertising and conversion tools.</li>
+    <li><strong>Local storage:</strong> to keep sessions and settings in the browser.</li>
+    <li><strong>Side panel:</strong> to show the panel next to the page.</li>
+    <li><strong>Tabs:</strong> to know which tab you are using the extension in.</li>
+    <li><strong>Scripts:</strong> to run the capture on the page.</li>
+    <li><strong>Alarms:</strong> to repeat the spreadsheet read while syncing is on.</li>
+    <li><strong>Debugger (optional):</strong> only to read the SSL certificate, as described in section 4.</li>
+  </ul>
+
+  <h2>6. Your data, Brazil's LGPD and your responsibility</h2>
+  <p>
+    Through the extension, PHMR Tech Solutions does not process the personal data of the people who use it. Everything stays in your browser, and PHMR receives nothing.
+  </p>
+  <p>
+    When you audit a site, you are responsible for how you use the data you see on it. If the capture includes personal data of that site's visitors, the extension masks what it recognizes before storing it, but handling whatever remains with care is up to you.
+  </p>
+
+  <h2>7. This website</h2>
+  <p>
+    This website, <code>validador-ga4.phmr.com.br</code>, is the extension's presentation page. It does not use cookies or analytics tools. The only thing it keeps in your browser is your choice between the light and dark theme, in local storage, and it never leaves your device.
+  </p>
+
+  <h2>8. Changes to this policy</h2>
+  <p>
+    If this policy changes, the new version will be published on this page, with an updated effective date.
+  </p>
+
+  <h2>9. Contact</h2>
+  <p>
+    PHMR Tech Solutions:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+  <p>See also the <a href="/en/terms/">Terms of use</a>.</p>
+</Legal>

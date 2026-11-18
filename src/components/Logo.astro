@@ -2,11 +2,12 @@
 // Logo tipográfico PROVISÓRIO: placa com duas colunas (dataLayer e hit), um tique de conferência e um bloco carmim de divergência.
 interface Props {
   href?: string;
+  rotulo?: string;
 }
-const { href = '/' } = Astro.props;
+const { href = '/', rotulo = 'Validador GA4, início' } = Astro.props;
 ---
 
-<a class="logo" href={href} aria-label="Validador GA4, início">
+<a class="logo" href={href} aria-label={rotulo}>
   <svg class="logo-marca" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
     <rect class="placa" x="1" y="1" width="30" height="30" rx="8"></rect>
     <rect class="coluna" x="7" y="8" width="6" height="16" rx="1.5"></rect>

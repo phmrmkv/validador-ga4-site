@@ -15,8 +15,9 @@ import logoClaroRaw from '../assets/phmr/logo-horizontal-claro.svg?raw';
 
 interface Props {
   fundo?: 'claro' | 'escuro' | 'tema';
+  idioma?: 'pt' | 'en';
 }
-const { fundo = 'tema' } = Astro.props;
+const { fundo = 'tema', idioma = 'pt' } = Astro.props;
 
 function preparar(raw: string, classe: string) {
   let n = 0;
@@ -35,12 +36,12 @@ const paraFundoEscuro = preparar(logoClaroRaw, 'phmr-para-escuro');
   class="phmr-credito"
   data-fundo={fundo}
 >
-  <span class="phmr-texto">Desenvolvido por</span>
+  <span class="phmr-texto">{idioma === 'en' ? 'Developed by' : 'Desenvolvido por'}</span>
   <span class="phmr-logo" data-phmr-ao-ver>
     {fundo !== 'escuro' && <Fragment set:html={paraFundoClaro} />}
     {fundo !== 'claro' && <Fragment set:html={paraFundoEscuro} />}
   </span>
-  <span class="phmr-sr">PHMR Tech Solutions (abre em nova aba)</span>
+  <span class="phmr-sr">{idioma === 'en' ? 'PHMR Tech Solutions (opens in a new tab)' : 'PHMR Tech Solutions (abre em nova aba)'}</span>
 </a>
 
 <style is:global>

@@ -1,19 +1,46 @@
 ---
 import Logo from './Logo.astro';
 import CreditoPHMR from './CreditoPHMR.astro';
+
+interface Props {
+  idioma?: 'pt' | 'en';
+}
+const { idioma = 'pt' } = Astro.props;
+const en = idioma === 'en';
+const legais = en
+  ? [
+      { href: '/en/privacy/', texto: 'Privacy policy' },
+      { href: '/en/terms/', texto: 'Terms of use' },
+    ]
+  : [
+      { href: '/privacidade/', texto: 'Política de privacidade' },
+      { href: '/termos/', texto: 'Termos de uso' },
+    ];
 ---
 
 <footer class="rodape">
   <div class="miolo rodape-grade">
     <div class="rodape-marca">
-      <Logo />
-      <p>Ferramenta em desenvolvimento pela PHMR Tech Solutions.</p>
-      <p>
-        O Validador GA4 não é um produto do Google. O nome GA4 aparece só para dizer com o que a extensão trabalha.
-      </p>
+      <Logo href="/" rotulo={en ? 'Validador GA4, home page (in Portuguese)' : 'Validador GA4, início'} />
+      {
+        en ? (
+          <>
+            <p>A tool in development by PHMR Tech Solutions.</p>
+            <p>Validador GA4 is not a Google product. The name GA4 appears only to say what the extension works with.</p>
+          </>
+        ) : (
+          <>
+            <p>Ferramenta em desenvolvimento pela PHMR Tech Solutions.</p>
+            <p>O Validador GA4 não é um produto do Google. O nome GA4 aparece só para dizer com o que a extensão trabalha.</p>
+          </>
+        )
+      }
+      <nav class="rodape-legal" aria-label={en ? 'Legal' : 'Documentos legais'}>
+        {legais.map((l) => <a href={l.href}>{l.texto}</a>)}
+      </nav>
     </div>
     <div class="rodape-credito">
-      <CreditoPHMR fundo="escuro" />
+      <CreditoPHMR fundo="escuro" idioma={idioma} />
     </div>
   </div>
 </footer>

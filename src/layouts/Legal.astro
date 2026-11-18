@@ -1,0 +1,27 @@
+---
+import Base from '@/layouts/Base.astro';
+import CabecalhoLegal from '@/components/CabecalhoLegal.astro';
+import Rodape from '@/components/Rodape.astro';
+
+interface Props {
+  idioma: 'pt' | 'en';
+  title: string;
+  description: string;
+  titulo: string;
+  /** Linha sob o título (vigência e versão). */
+  meta: string;
+  alternates: { pt: string; en: string };
+}
+const { idioma, title, description, titulo, meta, alternates } = Astro.props;
+const en = idioma === 'en';
+---
+
+<Base title={title} description={description} lang={en ? 'en' : 'pt-BR'} alternates={alternates}>
+  <CabecalhoLegal slot="topo" idioma={idioma} outro={en ? alternates.pt : alternates.en} />
+  <article class="miolo legal" aria-labelledby="titulo-legal">
+    <h1 id="titulo-legal">{titulo}</h1>
+    <p class="legal-meta">{meta}</p>
+    <slot />
+  </article>
+  <Rodape slot="rodape" idioma={idioma} />
+</Base>
