@@ -247,14 +247,14 @@ html:not(.js) [data-tema-botao], html:not(.js) [data-abrir] { display: none; }
 
 /* Animação única ao entrar: as linhas aparecem em sequência, o fio se desenha e a divergência acende por último */
 @media (prefers-reduced-motion: no-preference) {
-  .mesa-linha .cel { animation: mesa-entra 450ms var(--ease-out-soft) both; animation-delay: calc(200ms + var(--n) * 260ms); }
-  .mesa-linha .fio { animation: mesa-fio 500ms var(--ease-out-soft) both; animation-delay: calc(330ms + var(--n) * 260ms); }
-  .mesa-linha .cel-dir { animation-delay: calc(480ms + var(--n) * 260ms); }
-  .mesa-alerta { animation: mesa-entra 500ms var(--ease-out-soft) 1550ms both; }
-  .mesa-rodape { animation: mesa-fade 500ms var(--ease-out-soft) 1800ms both; }
+  .js .mesa-linha .cel { animation: mesa-entra 450ms var(--ease-out-soft) both; animation-delay: calc(200ms + var(--n) * 260ms); }
+  .js .mesa-linha .fio { animation: mesa-fio 500ms var(--ease-out-soft) both; animation-delay: calc(330ms + var(--n) * 260ms); }
+  .js .mesa-linha .cel-dir { animation-delay: calc(480ms + var(--n) * 260ms); }
+  .js .mesa-alerta { animation: mesa-entra 500ms var(--ease-out-soft) 1550ms both; }
+  .js .mesa-rodape { animation: mesa-fade 500ms var(--ease-out-soft) 1800ms both; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mesa { animation: mesa-fade 500ms var(--ease-out-soft) both; }
+  .js .mesa { animation: mesa-fade 500ms var(--ease-out-soft) both; }
 }
 @keyframes mesa-entra { from { opacity: 0; transform: translateY(8px); } }
 @keyframes mesa-fio { from { transform: scaleX(0); opacity: 0; } }
