@@ -1,0 +1,17 @@
+---
+import Base from '@/layouts/Base.astro';
+import Cabecalho from '@/components/Cabecalho.astro';
+import Rodape from '@/components/Rodape.astro';
+---
+
+<Base title="Página não encontrada | Validador GA4" description="Esta página não existe no site do Validador GA4." noindex>
+  <Cabecalho slot="topo" base="/" />
+  <section class="miolo pagina-erro" aria-labelledby="titulo-erro">
+    <div>
+      <h1 id="titulo-erro">Esse endereço não confere</h1>
+      <p class="texto-secao">A página que você procurou não existe ou mudou de lugar. Volte ao início.</p>
+      <p style="margin-top: 1.5rem"><a class="btn btn-primario" href="/">Voltar ao início</a></p>
+    </div>
+  </section>
+  <Rodape slot="rodape" />
+</Base>

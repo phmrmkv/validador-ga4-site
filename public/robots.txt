@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://validador-ga4.phmr.com.br/sitemap-index.xml

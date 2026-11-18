@@ -1,0 +1,55 @@
+---
+// "Mesa de conferência": ILUSTRAÇÃO em código (eventos de exemplo, domínio exemplo.com.br).
+// À esquerda o push do dataLayer, à direita o hit decodificado; a linha liga o que confere e uma chave diverge.
+const linhas = [
+  { esq: "event: 'purchase'", dir: 'en=purchase', ok: true },
+  { esq: "transaction_id: 'T-1001'", dir: 'ep.transaction_id=T-1001', ok: true },
+  { esq: "items[0].item_id: 'SKU-1'", dir: 'pr1=idSKU-1', ok: true },
+  { esq: 'value: "149.90"', dir: 'ep.value=149.90', ok: false },
+];
+---
+
+<figure class="mesa" aria-labelledby="mesa-legenda">
+  <div class="mesa-topo">
+    <span class="mesa-rotulo">Ilustração</span>
+    <span class="mesa-ctx">exemplo.com.br</span>
+  </div>
+  <div class="mesa-cabeca" aria-hidden="true">
+    <span>dataLayer.push · #12</span>
+    <span>GA4 · /g/collect</span>
+  </div>
+  <ol class="mesa-linhas">
+    {
+      linhas.map((l, i) => (
+        <li class:list={['mesa-linha', l.ok ? 'ok' : 'diverge']} style={`--n:${i}`}>
+          <code class="cel cel-esq">{l.esq}</code>
+          <span class="liga" aria-hidden="true"><i class="fio"></i></span>
+          <code class="cel cel-dir">
+            {l.dir}
+            <span class="marca">
+              {l.ok ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 9h12M6 15h12"></path></svg>
+              )}
+              <span class="sr-only">{l.ok ? 'confere' : 'diverge'}</span>
+            </span>
+          </code>
+        </li>
+      ))
+    }
+  </ol>
+  <div class="mesa-alerta" role="note">
+    <p class="alerta-titulo">Número que chegou como texto</p>
+    <p>
+      O push mandou <code>value</code> entre aspas e o hit levou <code>ep.value</code> em vez de <code>epn.value</code>. O GA4 pode não somar isso como receita. Corrija no dataLayer (número, sem aspas) ou na variável do GTM.
+    </p>
+  </div>
+  <div class="mesa-rodape">
+    <span class="placar">GA4 ≠ · 3 de 4 chaves certas</span>
+    <span>HTTP 204: aceito pelo coletor. Confirme no DebugView.</span>
+  </div>
+  <figcaption id="mesa-legenda" class="mesa-legenda">
+    Ilustração com eventos de exemplo. Não é uma tela real da extensão.
+  </figcaption>
+</figure>

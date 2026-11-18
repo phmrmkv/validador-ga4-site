@@ -1,0 +1,41 @@
+---
+import Logo from './Logo.astro';
+import TemaAlternar from './TemaAlternar.astro';
+
+interface Props {
+  /** Prefixo para as âncoras (na 404, volta à página inicial). */
+  base?: string;
+}
+const { base = '' } = Astro.props;
+const links = [
+  { href: `${base}#o-que-faz`, texto: 'O que faz' },
+  { href: `${base}#como-usar`, texto: 'Como usar' },
+  { href: `${base}#privacidade`, texto: 'Privacidade' },
+  { href: `${base}#requisitos`, texto: 'Requisitos' },
+  { href: `${base}#perguntas`, texto: 'Dúvidas' },
+];
+---
+
+<div class="selo-topo">
+  <div class="miolo"><span class="selo-ponto" aria-hidden="true"></span>Em desenvolvimento. Ainda não há versão pública.</div>
+</div>
+<header class="cabecalho" data-cabecalho data-rolado="false">
+  <div class="miolo cabecalho-linha">
+    <Logo />
+    <nav class="nav-desktop" aria-label="Principal" data-nav>
+      {links.map((l) => <a class="link-nav" href={l.href}>{l.texto}</a>)}
+    </nav>
+    <div class="acoes-topo">
+      <TemaAlternar />
+      <details class="menu-mobile" data-menu>
+        <summary>
+          Menu
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </summary>
+        <nav class="menu-painel" aria-label="Menu">
+          {links.map((l) => <a class="link-nav" href={l.href}>{l.texto}</a>)}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

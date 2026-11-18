@@ -1,0 +1,252 @@
+---
+import Base from '@/layouts/Base.astro';
+import Cabecalho from '@/components/Cabecalho.astro';
+import Rodape from '@/components/Rodape.astro';
+import Dialogos from '@/components/Dialogos.astro';
+import Mesa from '@/components/Mesa.astro';
+
+const seta = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"></path></svg>';
+
+const grupos = [
+  {
+    titulo: 'Compara o dataLayer com o plano',
+    texto:
+      'Cada push recebe o resultado OK, alerta ou ERRO e um placar de chaves certas. As regras vêm do plano: chave obrigatória, tipo, lista de valores aceitos, formato de URL, items[] e regras cruzadas entre campos.',
+    termos: ['obrigatoriedade', 'tipo', 'valores aceitos', 'items[]', 'ecommerce: null', 'chave fora do plano'],
+  },
+  {
+    titulo: 'Decodifica e liga os hits do GA4',
+    texto:
+      'Lê os envios para /g/collect e /mp/collect e mostra cada hit embaixo do push que o originou, com o que não chegou ou chegou diferente. Um hit sem push de mesmo nome também é conferido com as regras do plano.',
+    termos: ['/g/collect', '/mp/collect', 'GA4 ✓', 'GA4 ≠', 'sem hit'],
+  },
+  {
+    titulo: 'Olha além do GA4',
+    texto:
+      'Reconhece Google Ads, remarketing, Floodlight, Consent Mode e endpoints first-party de GTM Server-Side. Entre as ferramentas de mídia, cobre Meta Pixel e TikTok Pixel com a API de conversões, com a checagem de duplicidade por event_id.',
+    termos: ['Google Ads', 'Floodlight', 'Consent Mode', 'Meta Pixel', 'TikTok Pixel', 'UET', 'Pinterest', 'Snap', 'LinkedIn', 'Reddit'],
+  },
+  {
+    titulo: 'Explica o que cada alerta quer dizer',
+    texto:
+      'Embaixo de cada push e de cada hit há uma caixa com o que o apontamento significa, por que importa e como corrigir. Dado pessoal vira aviso de LGPD, nunca erro, e o que a extensão guarda passa por máscara.',
+    termos: ['glossário', 'aviso LGPD', 'HTTP 204', 'consentimento'],
+  },
+  {
+    titulo: 'Mostra erros e falhas de coleta',
+    texto:
+      'Registra erros de console e de script, promessas rejeitadas, recursos que não carregaram, falhas de fetch e XHR e cliques, com o que aconteceu até 3,5 segundos depois. Um hit bloqueado deixa o push em alerta.',
+    termos: ['console.error', 'fetch', 'XHR', 'cliques', 'hit bloqueado'],
+  },
+  {
+    titulo: 'Entrega evidência para o chamado',
+    texto:
+      'O painel abre no popup, na lateral, numa aba ou no DevTools. Dá para copiar o dataLayer.push inteiro, copiar a evidência de um registro, exportar sessões em JSON e comparar duas sessões, por exemplo antes e depois de um deploy.',
+    termos: ['Copiar evidência', 'Comparar', 'Exportar JSON', 'Busca', 'tema claro e escuro'],
+  },
+];
+
+const passos = [
+  {
+    t: 'Carregue a extensão no navegador',
+    p: 'Ainda não há versão na loja. Hoje ela é instalada sem compactação: abra o endereço de extensões, ligue o modo do desenvolvedor e escolha a pasta que tem o manifest.json.',
+    cod: ['chrome://extensions', 'edge://extensions'],
+  },
+  {
+    t: 'Abra o site e recarregue',
+    p: 'Abas já abertas são reconectadas sozinhas. Para ver a linha do tempo desde a carga da página, dê um F5 antes de começar o teste.',
+  },
+  {
+    t: 'Abra o painel',
+    p: 'Clique no ícone para ver o resumo no popup e use Abrir painel ou Abrir em aba. No DevTools (F12) aparece a aba Validador GA4, presa à aba inspecionada.',
+  },
+  {
+    t: 'Leia a linha do tempo',
+    p: 'Cada push vem com o hit que saiu depois dele. Clique numa linha para ver o código, o que o GA4 recebeu e a conferência chave a chave.',
+  },
+];
+
+const perguntas = [
+  {
+    q: 'Ela já está na loja do Chrome ou do Edge?',
+    a: 'Não. Ainda não há versão publicada nem download público. Hoje a extensão é carregada sem compactação, com o modo do desenvolvedor ligado.',
+  },
+  {
+    q: 'Ela muda alguma coisa na minha página?',
+    a: 'Por padrão, não: só observa. O push, o fetch, o sendBeacon e o XHR originais são chamados primeiro, do mesmo jeito. Há ações que você pede com um clique: o Testar instalação, que põe uma tag temporária só na aba escolhida, e o Disparar na página, que coloca comandos no dataLayer de verdade, com confirmação na primeira vez.',
+  },
+  {
+    q: 'Os dados da minha navegação saem do computador?',
+    a: 'O que ela captura fica no armazenamento do próprio navegador, sem servidor e sem telemetria. A rede que ela mesma usa é o download da planilha do plano. Algumas consultas opcionais, como DNS e PageSpeed, só acontecem com o seu clique e com a permissão do navegador.',
+  },
+  {
+    q: 'De onde vem o plano de mensuração?',
+    a: 'De uma planilha do Google lida com o login que já está no navegador, a cada 5 minutos por padrão, ou de um arquivo validation-plan.json importado nas Opções. Até a primeira leitura vale um plano embutido. As abas esperadas da planilha são Eventos, Evento × Parâmetro, Parâmetros e Valores aceitos.',
+  },
+  {
+    q: 'Ela confirma que o evento apareceu no GA4?',
+    a: 'Não. HTTP 200 ou 204 quer dizer que o coletor aceitou a requisição. Consentimento, filtros e processamento ainda podem descartar o evento, então a confirmação é no DebugView ou no Tempo real do GA4. O que o servidor entrega ao Google (GTM Server-Side) também não passa pelo navegador.',
+  },
+  {
+    q: 'Funciona em outros navegadores?',
+    a: 'O pacote é para Chrome e Edge, no formato Manifest V3. Firefox e Safari não fazem parte da documentação.',
+  },
+  {
+    q: 'Isso é um produto do Google?',
+    a: 'Não. O Validador GA4 é uma ferramenta da PHMR Tech Solutions. O nome GA4 está ali só para dizer com o que ela trabalha.',
+  },
+];
+---
+
+<Base
+  title="Validador GA4 | Confira o tagueamento do GA4 no navegador"
+  description="Extensão para Chrome e Edge que confere o tagueamento do GA4: dataLayer, hits e plano de mensuração. Em desenvolvimento, ainda sem versão pública."
+>
+  <Cabecalho slot="topo" />
+
+  <section class="hero" aria-labelledby="titulo-hero" id="inicio">
+    <div class="miolo">
+      <div class="hero-texto-bloco">
+        <h1 id="titulo-hero">Confira o que a página mandou para o GA4</h1>
+        <p class="hero-texto">
+          Extensão para Chrome e Edge que captura o dataLayer, decodifica os hits e compara cada evento com o plano de mensuração. Para quem implementa ou revisa tagueamento.
+        </p>
+        <div class="hero-acoes">
+          <button type="button" class="btn btn-primario" data-abrir="dlg-instalar">Instalar no Chrome ou Edge</button>
+          <a class="btn btn-secundario" href="#o-que-faz">Ver o que ela faz</a>
+        </div>
+      </div>
+      <Mesa />
+    </div>
+  </section>
+
+  <section class="secao" id="o-que-faz" aria-labelledby="titulo-faz">
+    <div class="miolo">
+      <h2 class="titulo-secao" id="titulo-faz">O que ela faz</h2>
+      <p class="texto-secao">
+        Para analistas de dados, desenvolvedores e QA. Ela mostra, evento a evento, o que o site empurrou, o que saiu pela rede e onde os dois não batem.
+      </p>
+      <div class="grupos">
+        {
+          grupos.map((g, i) => (
+            <article class="grupo" data-reveal style={`--i:${i % 2}`}>
+              <h3>{g.titulo}</h3>
+              <div>
+                <p>{g.texto}</p>
+                <ul class="termos" aria-label="Termos relacionados">
+                  {g.termos.map((t) => <li><code>{t}</code></li>)}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="secao fundo-faixa" id="como-usar" aria-labelledby="titulo-usar">
+    <div class="miolo passos-grade">
+      <div>
+        <h2 class="titulo-secao" id="titulo-usar">Como usar</h2>
+        <p class="texto-secao">Os passos de hoje, enquanto não existe um jeito público de instalar.</p>
+      </div>
+      <ol class="passos">
+        {
+          passos.map((p, i) => (
+            <li class="passo" data-reveal style={`--i:${i}`}>
+              <h3>{p.t}</h3>
+              <p>{p.p}</p>
+              {p.cod && (
+                <p class="passo-cod">
+                  {p.cod.map((c) => <code>{c}</code>)}
+                </p>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao" id="privacidade" aria-labelledby="titulo-priv">
+    <div class="miolo">
+      <h2 class="titulo-secao" id="titulo-priv">O que fica no navegador e o que ela não vê</h2>
+      <div class="tres">
+        <div data-reveal style="--i:0">
+          <h3>Fica no navegador</h3>
+          <p>
+            A captura é gravada no armazenamento do próprio navegador. Não há servidor da ferramenta, telemetria, código remoto nem bibliotecas de terceiros dentro da extensão. CPF, e-mail, telefone e token passam por máscara antes de serem guardados.
+          </p>
+        </div>
+        <div data-reveal style="--i:1">
+          <h3>Só com o seu clique</h3>
+          <p>
+            A planilha do plano é baixada com o seu login do Google. Consultas de DNS (SPF e DMARC) e notas do PageSpeed só acontecem quando você pede, depois que o navegador pede a permissão. O pacote também pede acesso a todos os sites, e o navegador mostra esse pedido na instalação.
+          </p>
+        </div>
+        <div data-reveal style="--i:2">
+          <h3>Fora do alcance dela</h3>
+          <p>
+            O que o servidor entrega ao Google, à Meta ou ao TikTok não passa pelo navegador, então a deduplicação é sempre provável. A ligação entre um push e um hit é inferida, e a confirmação final do evento é no DebugView ou no Tempo real do GA4.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao fundo-faixa" id="requisitos" aria-labelledby="titulo-req">
+    <div class="miolo req-grade">
+      <div>
+        <h2 class="titulo-secao" id="titulo-req">Requisitos</h2>
+      </div>
+      <dl class="req">
+        <div>
+          <dt>Navegador</dt>
+          <dd>Google Chrome 116 ou mais novo, ou Microsoft Edge recente. O mesmo pacote Manifest V3 roda nos dois.</dd>
+        </div>
+        <div>
+          <dt>Instalação</dt>
+          <dd>Modo do desenvolvedor ligado, para carregar a extensão sem compactação.</dd>
+        </div>
+        <div>
+          <dt>Plano pela planilha</dt>
+          <dd>Estar logado no Google, no mesmo navegador, com uma conta que abre a planilha.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="secao" id="perguntas" aria-labelledby="titulo-perg">
+    <div class="miolo">
+      <h2 class="titulo-secao" id="titulo-perg">Dúvidas</h2>
+      <div class="perguntas">
+        {
+          perguntas.map((p) => (
+            <details class="pergunta">
+              <summary>
+                <span>{p.q}</span>
+                <Fragment set:html={seta} />
+              </summary>
+              <div class="pergunta-resposta">
+                <p>{p.a}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="miolo" aria-labelledby="titulo-final">
+    <div class="chamada" data-reveal>
+      <h2 id="titulo-final">Quer testar quando sair?</h2>
+      <p>
+        A extensão está em desenvolvimento e ainda não tem versão pública. Este botão explica onde as coisas estão hoje.
+      </p>
+      <button type="button" class="btn btn-primario" data-abrir="dlg-instalar">Instalar no Chrome ou Edge</button>
+    </div>
+  </section>
+
+  <Rodape slot="rodape" />
+  <Dialogos />
+</Base>

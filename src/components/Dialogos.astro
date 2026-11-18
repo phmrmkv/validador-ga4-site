@@ -1,0 +1,17 @@
+---
+const x = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>';
+---
+
+<dialog class="dlg" id="dlg-instalar" aria-labelledby="dlg-instalar-titulo" data-dlg>
+  <button type="button" class="dlg-fechar" aria-label="Fechar" data-fechar set:html={x} />
+  <div class="dlg-corpo">
+    <h2 id="dlg-instalar-titulo">A extensão ainda não está publicada</h2>
+    <p>
+      O Validador GA4 está em desenvolvimento. Não há versão na loja do Chrome nem na do Edge, e também não há download público.
+    </p>
+    <p>Quando houver um jeito de instalar, este botão passa a levar até ele.</p>
+    <div class="dlg-acoes">
+      <button type="button" class="btn btn-primario" data-fechar>Entendi</button>
+    </div>
+  </div>
+</dialog>
