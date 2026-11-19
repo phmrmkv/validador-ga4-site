@@ -1,0 +1,116 @@
+---
+import Legal from '@/layouts/Legal.astro';
+---
+
+<Legal
+  idioma="pt"
+  title="Política de privacidade da versão da empresa | Validador GA4"
+  description="Política de privacidade da versão da empresa do Validador GA4: login com conta Google, controle de acesso e medição de uso interno em servidor da PHMR."
+  titulo="Política de privacidade do Validador GA4 · Empresa"
+  meta="Atualizada em 19 de novembro de 2026 · Versão da extensão: 2.2.0"
+  alternates={{ pt: '/privacidade-empresa/', en: '/privacidade-empresa/' }}
+>
+  <section class="legal-resumo" aria-labelledby="resumo">
+    <h2 id="resumo">Resumo</h2>
+    <ul>
+      <li>Esta política vale só para a versão da empresa do Validador GA4. A versão pública tem a sua própria política, e ela não muda.</li>
+      <li>Para entrar, você usa a sua conta Google corporativa. Nós recebemos o seu nome e o seu e-mail. Nunca vemos a sua senha.</li>
+      <li>Enviamos ao servidor da PHMR quais funções da extensão você usa e em quais sites (só o nome do site) você rodou uma validação.</li>
+      <li>Nunca enviamos o conteúdo do <code>dataLayer</code>, os envios das páginas, endereços completos, o conteúdo das páginas nem a sua planilha.</li>
+      <li>Só os administradores veem esses dados. Os eventos de uso são apagados depois de 180 dias.</li>
+    </ul>
+  </section>
+
+  <h2>1. Quem trata os dados</h2>
+  <p>
+    A PHMR Tech Solutions é a responsável por esta versão e por um servidor próprio de acesso e medição de uso. Contato:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+  <p>
+    A versão da empresa é distribuída a um grupo fechado de pessoas do domínio corporativo. Quem entra fica <strong>pendente</strong> até um administrador aprovar.
+  </p>
+
+  <h2>2. Quais dados são tratados</h2>
+  <ul>
+    <li><strong>Nome e e-mail</strong> da sua conta Google, e o identificador interno dessa conta (<code>google_sub</code>), que usamos para reconhecer você mesmo que o e-mail mude.</li>
+    <li><strong>Equipe</strong> (QA, Dev, CRO, UX ou Outra), escolhida pelo administrador na aprovação.</li>
+    <li><strong>Eventos de uso</strong>, de uma lista fechada que o servidor recusa ultrapassar:
+      <ul>
+        <li>painel aberto (e em qual tela: painel, janela, ferramentas do desenvolvedor ou opções);</li>
+        <li>aba da extensão aberta;</li>
+        <li>plano de mensuração carregado (a origem e a quantidade de eventos do plano, nunca o conteúdo);</li>
+        <li>resumo de uma validação: o <strong>nome do site (hostname)</strong> e quantos itens deram OK, alerta e erro;</li>
+        <li>função usada (por exemplo, testar instalação, exportar);</li>
+        <li>erro da extensão (apenas um código).</li>
+      </ul>
+    </li>
+    <li>Junto de cada evento seguem a data e a hora, a versão da extensão e o navegador (Chrome ou Edge).</li>
+    <li>Datas de criação do acesso, de aprovação e do último acesso, e quem aprovou.</li>
+  </ul>
+  <p>
+    <strong>Atenção:</strong> o nome do site no resumo de validação revela quais sites cada pessoa testou. Esse dado é visto pelos administradores, ligado ao seu nome.
+  </p>
+
+  <h2>3. Para que usamos</h2>
+  <p>Duas finalidades, e só elas:</p>
+  <ul>
+    <li><strong>Controle de acesso:</strong> permitir o uso somente a quem foi aprovado e bloquear quem não deve usar.</li>
+    <li><strong>Medição de uso interno:</strong> saber quem usa, quando e quais funções, para decidir o que melhorar e para apoiar o suporte.</li>
+  </ul>
+  <p>Não vendemos esses dados, não os usamos para publicidade, análise de crédito ou empréstimos e não os repassamos a terceiros.</p>
+
+  <h2>4. O que não é coletado</h2>
+  <ul>
+    <li>o conteúdo do <code>dataLayer</code> e os payloads dos envios do site;</li>
+    <li>endereços completos das páginas (só o nome do site, no resumo de validação);</li>
+    <li>o conteúdo das páginas, textos, formulários, senhas e cookies;</li>
+    <li>o conteúdo do plano de mensuração e o link da planilha;</li>
+    <li>a sua senha do Google e qualquer acesso a Gmail, Drive ou outros serviços. A extensão pede só o seu nome e o seu e-mail (escopos <code>openid</code>, <code>email</code> e <code>profile</code>).</li>
+  </ul>
+  <p>
+    Esses dados continuam sendo tratados só no seu navegador, como descreve a <a href="/privacidade/">política da versão pública</a>. Enquanto você não for liberado, a extensão também não grava nada das páginas.
+  </p>
+
+  <h2>5. Onde ficam os dados</h2>
+  <p>
+    Em um servidor próprio da PHMR, hospedado no Brasil. Não usamos Google Analytics, Firebase nem outro serviço de análise de terceiros para essa medição. O acesso ao servidor é protegido por HTTPS.
+  </p>
+  <p>
+    O login passa pelo Google, que tem a sua própria política de privacidade: <a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>.
+  </p>
+
+  <h2>6. Por quanto tempo guardamos</h2>
+  <ul>
+    <li><strong>Eventos de uso:</strong> 180 dias. Depois disso, são apagados automaticamente.</li>
+    <li><strong>Sessões de login:</strong> até 30 dias depois de expirarem ou de serem encerradas.</li>
+    <li><strong>Cadastro (nome, e-mail, equipe, estado do acesso):</strong> enquanto você tiver acesso. Pedindo a exclusão, apagamos.</li>
+    <li>O servidor tem cópia de segurança diária, guardada por até 7 dias, além de uma cópia semanal da hospedagem. Um dado apagado some dessas cópias quando elas vencem.</li>
+  </ul>
+  <p>Se o servidor estiver fora do ar, quem já foi liberado continua usando por até 24 horas desde a última confirmação.</p>
+
+  <h2>7. Quem acessa</h2>
+  <p>
+    Somente os administradores da PHMR, pelo painel de administração, que exige login com conta Google autorizada. As ações dos administradores (aprovar, bloquear, mudar equipe, exportar, excluir) ficam registradas. Os dados não são compartilhados com a sua empresa, a menos que a lei exija ou que você autorize.
+  </p>
+
+  <h2>8. Seus direitos</h2>
+  <p>
+    Pela LGPD, você pode pedir confirmação do tratamento, acesso, correção, anonimização, portabilidade e a exclusão dos seus dados, e se informar com quem eles são compartilhados. Para pedir, escreva para{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a> do e-mail da sua conta. A exclusão apaga o seu cadastro, as suas sessões e os seus eventos de uso. Depois dela, o acesso só volta com um novo pedido e uma nova aprovação.
+  </p>
+  <p>Você também pode sair a qualquer momento pela opção “Sair” da extensão, e desinstalar a extensão.</p>
+
+  <h2>9. Uso Limitado (Chrome Web Store)</h2>
+  <p>
+    O uso dos dados de usuário tratados pelo Validador GA4 · Empresa segue a Política de Dados do Usuário da Chrome Web Store, inclusive os requisitos de Uso Limitado: os dados servem só para o controle de acesso e a medição de uso interno, não são vendidos nem usados para publicidade, análise de crédito ou empréstimos, e só os administradores os veem.
+  </p>
+
+  <h2>10. Mudanças nesta política</h2>
+  <p>Se esta política mudar, a nova versão será publicada nesta página, com a data de atualização.</p>
+
+  <h2>11. Contato</h2>
+  <p>
+    PHMR Tech Solutions:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+</Legal>
