@@ -1,0 +1,116 @@
+---
+import Legal from '@/layouts/Legal.astro';
+---
+
+<Legal
+  idioma="en"
+  title="Privacy policy for the company version | Validador GA4"
+  description="Privacy policy for the company version of Validador GA4: sign-in with a Google account, access control and internal usage measurement on a PHMR server."
+  titulo="Validador GA4 · Company privacy policy"
+  meta="Effective November 19, 2026 · Extension version: 2.2.0"
+  alternates={{ pt: '/privacidade-empresa/', en: '/en/privacy-company/' }}
+>
+  <section class="legal-resumo" aria-labelledby="summary">
+    <h2 id="summary">Summary</h2>
+    <ul>
+      <li>This policy applies only to the company version of Validador GA4. The public version has its own policy, which does not change.</li>
+      <li>To sign in, you use your corporate Google account. We receive your name and email address. We never see your password.</li>
+      <li>We send to the PHMR server which extension features you use and on which sites (the site name only) you ran a validation.</li>
+      <li>We never send the contents of the <code>dataLayer</code>, the page requests, full addresses, page content or your spreadsheet.</li>
+      <li>Only administrators see this data. Usage events are deleted after 180 days.</li>
+    </ul>
+  </section>
+
+  <h2>1. Who handles the data</h2>
+  <p>
+    PHMR Tech Solutions is responsible for this version and for its own access and usage measurement server. Contact:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+  <p>
+    The company version is distributed to a closed group of people from the corporate domain. Anyone who signs in stays <strong>pending</strong> until an administrator approves them.
+  </p>
+
+  <h2>2. What data is handled</h2>
+  <ul>
+    <li><strong>Name and email address</strong> from your Google account, and that account's internal identifier (<code>google_sub</code>), which we use to recognize you even if your email address changes.</li>
+    <li><strong>Team</strong> (QA, Dev, CRO, UX or Other), chosen by the administrator on approval.</li>
+    <li><strong>Usage events</strong>, from a closed list that the server refuses to go beyond:
+      <ul>
+        <li>panel opened (and on which screen: panel, window, developer tools or options);</li>
+        <li>extension tab opened;</li>
+        <li>measurement plan loaded (the source and the number of events in the plan, never its content);</li>
+        <li>validation summary: the <strong>site name (hostname)</strong> and how many items were OK, warnings and errors;</li>
+        <li>feature used (for example, test installation, export);</li>
+        <li>extension error (a code only).</li>
+      </ul>
+    </li>
+    <li>Each event comes with the date and time, the extension version and the browser (Chrome or Edge).</li>
+    <li>The dates the access was created, approved and last used, and who approved it.</li>
+  </ul>
+  <p>
+    <strong>Note:</strong> the site name in the validation summary reveals which sites each person tested. Administrators see this data, linked to your name.
+  </p>
+
+  <h2>3. What we use it for</h2>
+  <p>Two purposes, and only these:</p>
+  <ul>
+    <li><strong>Access control:</strong> allowing use only by those who were approved and blocking those who should not use it.</li>
+    <li><strong>Internal usage measurement:</strong> knowing who uses it, when and which features, to decide what to improve and to support troubleshooting.</li>
+  </ul>
+  <p>We do not sell this data, we do not use it for advertising, creditworthiness or lending, and we do not pass it on to third parties.</p>
+
+  <h2>4. What is not collected</h2>
+  <ul>
+    <li>the contents of the <code>dataLayer</code> and the payloads of the site's requests;</li>
+    <li>full page addresses (only the site name, in the validation summary);</li>
+    <li>page content, text, forms, passwords and cookies;</li>
+    <li>the content of the measurement plan and the spreadsheet link;</li>
+    <li>your Google password and any access to Gmail, Drive or other services. The extension asks only for your name and email address (the <code>openid</code>, <code>email</code> and <code>profile</code> scopes).</li>
+  </ul>
+  <p>
+    This data continues to be handled only in your browser, as described in the <a href="/en/privacy/">public version's policy</a>. Until you are approved, the extension also records nothing from the pages.
+  </p>
+
+  <h2>5. Where the data is kept</h2>
+  <p>
+    On PHMR's own server, hosted in Brazil. We do not use Google Analytics, Firebase or any other third-party analytics service for this measurement. Access to the server is protected by HTTPS.
+  </p>
+  <p>
+    Sign-in goes through Google, which has its own privacy policy: <a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>.
+  </p>
+
+  <h2>6. How long we keep it</h2>
+  <ul>
+    <li><strong>Usage events:</strong> 180 days. After that, they are deleted automatically.</li>
+    <li><strong>Sign-in sessions:</strong> up to 30 days after they expire or are ended.</li>
+    <li><strong>Profile (name, email address, team, access status):</strong> while you have access. If you ask for deletion, we delete it.</li>
+    <li>The server has a daily backup, kept for up to 7 days, plus a weekly backup from the hosting provider. Deleted data disappears from these backups when they expire.</li>
+  </ul>
+  <p>If the server is down, people who were already approved keep using the extension for up to 24 hours since the last confirmation.</p>
+
+  <h2>7. Who has access</h2>
+  <p>
+    Only PHMR administrators, through the administration panel, which requires signing in with an authorized Google account. Administrator actions (approve, block, change team, export, delete) are logged. The data is not shared with your company unless the law requires it or you authorize it.
+  </p>
+
+  <h2>8. Your rights</h2>
+  <p>
+    Under Brazil's LGPD, you can ask for confirmation of processing, access, correction, anonymization, portability and deletion of your data, and find out who it is shared with. To make a request, write to{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a> from your account's email address. Deletion removes your profile, your sessions and your usage events. After that, access returns only with a new request and a new approval.
+  </p>
+  <p>You can also sign out at any time with the extension's “Sign out” option, and uninstall the extension.</p>
+
+  <h2>9. Limited Use (Chrome Web Store)</h2>
+  <p>
+    The use of user data handled by Validador GA4 · Company adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements: the data is used only for access control and internal usage measurement, is never sold or used for advertising, creditworthiness or lending, and is seen only by administrators.
+  </p>
+
+  <h2>10. Changes to this policy</h2>
+  <p>If this policy changes, the new version will be published on this page, with the date it was updated.</p>
+
+  <h2>11. Contact</h2>
+  <p>
+    PHMR Tech Solutions:{" "}
+    <a href="mailto:phmrtechsolutions@gmail.com">phmrtechsolutions@gmail.com</a>.
+  </p>
+</Legal>
