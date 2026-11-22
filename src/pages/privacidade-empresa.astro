@@ -16,6 +16,7 @@ import Legal from '@/layouts/Legal.astro';
       <li>Esta política vale só para a versão da empresa do Validador GA4. A versão pública tem a sua própria política, e ela não muda.</li>
       <li>Para entrar, você usa a sua conta Google corporativa. Nós recebemos o seu nome e o seu e-mail. Nunca vemos a sua senha.</li>
       <li>Enviamos ao servidor da PHMR quais funções da extensão você usa e em quais sites (só o nome do site) você rodou uma validação.</li>
+      <li>Se você clicar em "Sugerir ao plano", enviamos ao servidor o evento, o parâmetro, o valor, o significado e o caminho da tela, para um administrador revisar e gravar na planilha do plano. Isso só acontece por clique, e só os administradores veem.</li>
       <li>Nunca enviamos o conteúdo do <code>dataLayer</code>, os envios das páginas, endereços completos, o conteúdo das páginas nem a sua planilha.</li>
       <li>Só os administradores veem esses dados. Os eventos de uso são apagados depois de 180 dias.</li>
     </ul>
@@ -44,6 +45,7 @@ import Legal from '@/layouts/Legal.astro';
         <li>erro da extensão (apenas um código).</li>
       </ul>
     </li>
+    <li><strong>Sugestões ao plano</strong>, só quando você clica em "Sugerir ao plano": o nome do evento, o parâmetro, o valor sugerido (já com dados pessoais mascarados), o significado que você digitar e o caminho da tela (sem endereço completo nem parâmetros de consulta), junto do seu e-mail e da sua equipe. Se você for administrador, também guardamos quem aprovou ou recusou e quando.</li>
     <li>Junto de cada evento seguem a data e a hora, a versão da extensão e o navegador (Chrome ou Edge).</li>
     <li>Datas de criação do acesso, de aprovação e do último acesso, e quem aprovou.</li>
   </ul>
@@ -82,6 +84,7 @@ import Legal from '@/layouts/Legal.astro';
   <h2>6. Por quanto tempo guardamos</h2>
   <ul>
     <li><strong>Eventos de uso:</strong> 180 dias. Depois disso, são apagados automaticamente.</li>
+    <li><strong>Sugestões ao plano:</strong> enquanto forem úteis à revisão e ao registro do que entrou na planilha. Pedindo a exclusão, apagamos o seu e-mail das sugestões.</li>
     <li><strong>Sessões de login:</strong> até 30 dias depois de expirarem ou de serem encerradas.</li>
     <li><strong>Cadastro (nome, e-mail, equipe, estado do acesso):</strong> enquanto você tiver acesso. Pedindo a exclusão, apagamos.</li>
     <li>O servidor tem cópia de segurança diária, guardada por até 7 dias, além de uma cópia semanal da hospedagem. Um dado apagado some dessas cópias quando elas vencem.</li>
@@ -90,7 +93,7 @@ import Legal from '@/layouts/Legal.astro';
 
   <h2>7. Quem acessa</h2>
   <p>
-    Somente os administradores da PHMR, pelo painel de administração, que exige login com conta Google autorizada. As ações dos administradores (aprovar, bloquear, mudar equipe, exportar, excluir) ficam registradas. Os dados não são compartilhados com a sua empresa, a menos que a lei exija ou que você autorize.
+    Somente os administradores da PHMR, pelo painel de administração (e, para as sugestões ao plano, pela aba "Sugestões" da extensão), que exige login com conta Google autorizada. As ações dos administradores (aprovar, bloquear, mudar equipe, exportar, excluir) ficam registradas. Os dados não são compartilhados com a sua empresa, a menos que a lei exija ou que você autorize.
   </p>
 
   <h2>8. Seus direitos</h2>
